@@ -1,0 +1,122 @@
+<!-- html boilerplate-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- js -->
+        <!--import jquery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+            * {
+                border: solid 1px black;
+                margin: 0;
+            }
+            body{
+                font-family: 'DM Sans', sans-serif;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: auto auto auto auto auto auto;
+                grid-gap: 10px;
+                width: 100%;
+                justify-content: start;
+            }
+            .duo-flex {
+                display: flex;
+                grid-gap: 10px;
+                margin: 10px;
+            }
+            #sidebar {
+                width: 300px;
+            }
+            #container-tasks-list {
+                width: 100%;
+                height: 100%;
+            }
+            .task-box {
+                background-color: #a1a1a1;
+                width: 250px;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container duo-flex">
+            <div id="sidebar">
+                <h1 style="text-align: center">Plannr</h1>
+                <div id="container-new" class="">
+                    <label for="">
+                    Name
+                    <input type="text" id="input-new-task-name" value="" />
+                </label>
+                </br>
+                    <label for="">Project
+                    <select>
+                        <option value="">Set project</option>
+                        <option value="1">Project 1</option>
+                        <option value="2">Project 2</option>
+                        <option value="3">Project 3</option>
+                    </select>
+                </label>
+                </br>
+                    <label for="">Description
+                    <input type="text" id="input-new-task-desc" value="" />
+                </label>
+                </br>
+                <label for=""> Date
+                    <input type="date" id="input-new-task-date" value="" />
+                </label>
+                </br>
+                    <button id="btn-new" class="btn">Add task</button>
+                </div>
+
+                <div id="container-projects-list">
+                    <div id="projects-title">
+                        <h1>Projects</h1>
+                    </div>
+                    <div class="project">
+                        <label for=""> List by project
+                        <select>
+                            <option value="">All projects</option>
+                            <option value="1">Project 1</option>
+                            <option value="2">Project 2</option>
+                            <option value="3">Project 3</option>
+                        </select></div>
+                    </label>
+                        
+                    <label for="">Name
+                        <input type="text" id="input-new-project" value="" />
+                    </label>
+                </br>
+                    <button id="btn-new-project" class="btn">
+                        New project
+                    </button>
+                </div>
+            </div>
+            <div id="container-tasks-list">
+                <div id="tasks-title">
+                    <h1>Tasks</h1>
+                </div>
+                <div id="tasks-list" class="grid">
+                    <div class="task-box">
+                        <div class="task-name">
+                            <span>Task 1</span>
+                            <span>Project 1</span>
+                        </div>
+                        <div class="task-description">
+                            <span>Description 1</span>
+                            <span>Due date 1</span>
+                        </div>
+                        <div class="task-options">
+                            <button class="btn">Done</button>
+                            <button class="btn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script></script>
+    </body>
+</html>
