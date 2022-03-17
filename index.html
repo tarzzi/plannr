@@ -1,138 +1,126 @@
 <!-- html boilerplate-->
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <!--import jquery-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
-            * {
-                margin: 0;
-            }
-            body{
-                font-family: 'DM Sans', sans-serif;
-            }
-            .grid {
-                display: grid;
-                grid-template-columns: auto auto auto auto auto auto;
-                grid-gap: 10px;
-                width: 100%;
-                justify-content: start;
-            }
-            .grid-1{
-                display: grid;
-                grid-template-columns: auto;
-                gap: 10px;
-            }
-            .duo-flex {
-                display: flex;
-                grid-gap: 10px;
-            }
-            #sidebar {
-                width: 300px;
-                padding: 15px;
-                border-right: solid 1px black;
-            }
-            #container-tasks-list {
-                width: 100%;
-                height: 100%;
-                padding: 15px;
-            }
-            .task-box {
-                background-color: #ffffff;
-                width: 250px;
-                height: 100px;
-                border: solid 1px black;
-            }
-            .prio-high {
-                background-color: #ff00003f;
-            }
-            .prio-mid {
-                background-color: #ffa6007c;
-            }
-            .prio-low {
-                background-color: #00ff0071;
-            }
-            .prio-none {
-                background-color: #a1a1a180;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container duo-flex">
-            <div id="sidebar">
-                <h1 style="text-align: center">Plannr</h1>
-                <div id="container-new" class="grid-1">
-                    <h3>New task</h3>
-                    <label>
-                    Name
-                    <input type="text" id="input-new-task-name" class="input-clear" value="" />
-                </label>
-                <label>Priority
-                    <select class="select-prio input-clear" id="input-select-prio">
-                        <option value="">Set priority</option>
-                        <option value="High">High</option>
-                        <option value="Mid">Mid</option>
-                        <option value="Low">Low</option>
-                        <option value="None">None</option>
-                    </select>
-                </label>
-                <label>Project
-                    <select class="select-project input-clear" id="input-select-project">
-                        <option value="">Set project</option>
-                    </select>
-                </label>
-                <label>Description
-                    <input type="text" id="input-new-task-desc" class="input-clear" value="" />
-                </label>
-                <label> Due Date
-                    <input type="date" id="input-new-task-date" class="input-clear" value="" />
-                </label>
-                    <button id="btn-new" class="btn" onclick="addTask()">Add task</button>
-                </div>
-
-                <div id="container-projects-list">
-                    <div id="projects-title">
-                        <h1>Projects</h1>
-                    </div>
-                    <div class="project grid-1">
-                        <div id="projects-list" class="grid-1">
-                        </div>
-                        
-                        <h3>New project</h3> 
-                        <label>Name
-                            <input type="text" class="input-clear" id="input-new-project" value="" />
-                        </label>
-                        <button id="btn-new-project" class="btn" onclick="addProject()">
-                            New project
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div id="container-tasks-list">
-                <div id="tasks-title">
-                    <h1>Tasks</h1>
-                </div>
-                <div id="tasks-list" class="grid">
-                    <div class="task-box">
-                        <div class="task-name">
-                            <span>Task 1</span>
-                            <span>Project 1</span>
-                        </div>
-                        <div class="task-description">
-                            <span>Description 1</span>
-                            <span>Due date 1</span>
-                        </div>
-                        <div class="task-options">
-                            <button class="btn">Done</button>
-                            <button class="btn">Delete</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <!--import jquery-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <link rel="stylesheet" href="styles.css" />
+  </head>
+<body>
+  <div class="container duo-flex">
+    <div id="sidebar">
+    <h1 style="text-align: center">Plannr</h1>
+    <div id="container-new">
+      <h3>New task</h3>
+        <div id="dropdown-task">
+          <div class="triangle-block" onclick="dropdown('t')">
+              <div class="triangle"></div>
+          </div>
+          <div class="grid-1" id="dropdown-task-content">
+              <label>
+                  Name
+                  <input
+                      type="text"
+                      id="input-new-task-name"
+                      class="input-clear"
+                      value=""
+                  />
+              </label>
+              <label
+                  >Priority
+                  <select
+                      class="select-prio input-clear"
+                      id="input-select-prio"
+                  >
+                      <option value="">Set priority</option>
+                      <option value="High">High</option>
+                      <option value="Mid">Mid</option>
+                      <option value="Low">Low</option>
+                      <option value="None">None</option>
+                  </select>
+              </label>
+              <label
+                  >Project
+                  <select
+                      class="select-project input-clear"
+                      id="input-select-project"
+                  >
+                      <option value="">Set project</option>
+                  </select>
+              </label>
+              <label
+                  >Description
+                  <input
+                      type="text"
+                      id="input-new-task-desc"
+                      class="input-clear"
+                      value=""
+                  />
+              </label>
+              <label>
+                  Due Date
+                  <input
+                      type="date"
+                      id="input-new-task-date"
+                      class="input-clear"
+                      value=""
+                  />
+              </label>
+              <button
+                  id="btn-new"
+                  class="btn"
+                  onclick="addTask()"
+              >
+                  Add task
+              </button>
+          </div>
         </div>
-        <script src="functions.js"></script>
-    </body>
+    </div>
+
+    <div id="container-projects-list">
+        <div id="projects-title">
+            <h1>Projects</h1>
+        </div>
+        <div class="project grid-1 gap-1">
+            <div id="projects-list" class="grid-1"></div>
+            <div>
+              <h3>New project</h3>
+
+              <div class="triangle-block" onclick="dropdown('p')">
+                  <div class="triangle"></div>
+              </div>
+            </div>
+            <div id="dropdown-project-content" prop="projects" class="grid-1">
+            <label
+                >Name
+                <input
+                    type="text"
+                    class="input-clear"
+                    id="input-new-project"
+                    value=""
+                />
+            </label>
+            <button
+                id="btn-new-project"
+                class="btn"
+                onclick="addProject()"
+            >
+                New project
+            </button>
+          </div>
+        </div>
+    </div>
+  </div>
+      <div id="container-tasks-list">
+          <div id="tasks-title">
+              <h1>Tasks</h1>
+          </div>
+          <div id="tasks-list" class="grid">
+          </div>
+      </div>
+  </div>
+  <script src="functions.js"></script>
+</body>
 </html>
