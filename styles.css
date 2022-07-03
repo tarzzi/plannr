@@ -74,21 +74,30 @@ button:hover{
 .task-box {
     background-color: #ffffff;
     width: 220px;
-    height: 75px;
+    height: auto;
     padding: 7px;
     border: solid 1px black;
 }
 .prio-high {
     background-color: #ff00003f;
+    padding: 2px 6px;
+    border-radius: 5px;
 }
 .prio-mid {
     background-color: #ffa6007c;
+    padding: 2px 6px;
+    border-radius: 5px;
 }
 .prio-low {
     background-color: #00ff0071;
+    padding: 2px 6px;
+    border-radius: 5px;
 }
 .prio-none {
     background-color: #a1a1a180;
+}
+.done{
+    color: rgba(160, 160, 160, 0.541);
 }
 #dropdown-task {
     padding-bottom: 1em;

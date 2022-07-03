@@ -60,24 +60,28 @@ function renderTasks(project) {
         if (task.project == project || project == null) {
             let prio_color = getPrioColor(task.prio)
             tasksList.append(`
-            <div class="task-box grid-box ${prio_color}" id="${task.id}">
+            <div class="task-box grid-box" id="${task.id}">
                     <div class="task-name">
-                        <span>${task.name}</span>
-                        <span>${task.project}</span>
+                        <span>Task: ${task.name}</span><br>
+                        <span>Project: ${task.project}</span>
                     </div>
                     <div class="task-description">
-                        <span>${task.desc}</span>
-                        <span>${task.prio}</span>
+                        <span>Description: ${task.desc}</span><br>
+                        <span class="${prio_color}">Priority: ${task.prio}</span><br>
                         <span>${task.date}</span>
                     </div>
                     <div class="task-options">
-                        <button class="btn">Done</button>
+                        <button class="btn" onclick="completeTask('${task.id})">Done</button>
                         <button class="btn" onclick="deleteTask('${task.id}')">Delete</button>
                     </div>
                 </div>
             `)
         }
     })
+}
+
+function completeTask(taskid){
+    return;
 }
 
 function renderProjects() {
